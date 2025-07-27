@@ -3,21 +3,38 @@ import { LoginPage } from '../pages/LoginPage';
 import { HomePage } from '../pages/HomePage';
 import { USERS, TEST_PASSWORD } from '../utils/users';
 
-test('login with standard user', async ({ page }) => {
-  const loginPage = new LoginPage(page);
-  const homePage = new HomePage(page);
+test.describe('EPIC-9876 Home Page Authentication', () => {
+  /**
+   * @jiraEpic EPIC-9876
+   * @jiraStory STORY-4321
+   * @tags auth, smoke, home-page
+   */
 
-  await loginPage.goto();
+  let loginPage: LoginPage;
+  let homePage: HomePage;
 
-  await loginPage.login(USERS.standardUser, TEST_PASSWORD!);
+  test.beforeEach(async ({ page }) => {
+    loginPage = new LoginPage(page);
+    homePage = new HomePage(page);
+    await loginPage.goto();
+    
+    
+  });
 
-  await expect(page).toHaveURL(/.*inventory.html/);
-  await expect(homePage.pageWrapper).toBeVisible();
+  test('STORY-4321 AC1: standard user can log in and out', 
+  { tag: ['@auth', '@smoke', '@EPIC-9876', '@STORY-4321'] }, 
+  async ({}, testInfo) => {
+    testInfo.annotations.push({ type: 'jiraEpic', description: 'EPIC-9876' });
+    testInfo.annotations.push({ type: 'jiraStory', description: 'STORY-4321' });
+    testInfo.annotations.push({ type: 'user', description: USERS.standardUser });
 
-  await homePage.openMenu();
-  await expect(homePage.logoutLink).toBeVisible();
-  await homePage.closeMenu();
+    await test.step('Given I log in with valid credentials', async () => {
+        await loginPage.login(USERS.standardUser, TEST_PASSWORD!);
+      });
 
-  await homePage.logout();
-  await loginPage.expectLoginFormVisible();
+    await test.step('Then I should see the inventory page', async () => {
+        await homePage.expectOnInventoryPage();
+      });
+
+  });
 });

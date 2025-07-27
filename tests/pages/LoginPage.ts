@@ -1,7 +1,8 @@
+// pages/LoginPage.ts
 import { Page, Locator, expect } from '@playwright/test';
 
 export class LoginPage {
-  private page: Page;
+  readonly page: Page;
   private usernameInput: Locator;
   private passwordInput: Locator;
   private loginButton: Locator;
@@ -14,7 +15,7 @@ export class LoginPage {
   }
 
   async goto() {
-    await this.page.goto('/'); // set with env i.e. npx playwright test --base-url=https://staging.example.com
+    await this.page.goto('/'); // set base url in CI/CD or via playwright.config.ts
   }
 
   async enterUsername(username: string) {
