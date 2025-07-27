@@ -1,7 +1,7 @@
 // pages/HomePage.ts
 import { Page, Locator, expect } from '@playwright/test';
 import { LoginPage } from './LoginPage';
-import { USERS, TEST_PASSWORD } from '../utils/users';
+import { TEST_PASSWORD } from '../utils/users';
 
 export class HomePage {
   readonly page: Page;
