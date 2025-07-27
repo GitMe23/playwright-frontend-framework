@@ -6,8 +6,7 @@ Front-end test automation using [Playwright](https://playwright.dev/) and [TypeS
 
 ## 📦 Features
 
-- ✅ Playwright with Chromium, Firefox, WebKit support
-- ✅ TypeScript for robust typings and IntelliSense
+- ✅ Playwright with Chromium, Firefox, and Mobile Safari support
 - ✅ Page Object Model structure for scalable tests
 - ✅ `.env` file support for environment-based config
 - ✅ Auto screenshots and videos on test failure
@@ -16,15 +15,16 @@ Front-end test automation using [Playwright](https://playwright.dev/) and [TypeS
 
 ---
 
-## 📁 Folder Structure
-├── tests/
-│ ├── pages/ # Page Object Models
-│ ├── specs/ # Test specs
-│ └── utils/ # Helpers and config
-├── .env.demo # Example environment variables
-├── playwright.config.ts # Playwright test runner config
-├── README.md
-└── package.json
+## 🚀 Running Tests
+
+### 📦 1. Clone the repository
+### 📦 2. Navigate into the project directory
+### 📦 2. Ensure you have [Node.js (>= 18.x)](https://nodejs.org/) installed
+### 📦 4. Install Dependencies
+
+```bash
+npm install
+```
 
 
 ## 🚀 Running Tests
