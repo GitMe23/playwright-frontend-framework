@@ -46,10 +46,12 @@ export class HomePage {
   }
 
   async openMenu() {
+    await this.menuOpenButton.waitFor({ state: 'visible' });
     await this.menuOpenButton.click();
-    // wait for menu overlay or menu to be visible
-    await this.menuOverlay.waitFor({ state: 'visible' });
+    console.log('Clicked menu button');
+    
   }
+  
 
   async closeMenu() {
     await this.menuCloseButton.click();

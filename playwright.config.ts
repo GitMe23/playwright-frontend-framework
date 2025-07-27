@@ -1,3 +1,9 @@
+import * as dotenv from 'dotenv';
+import * as path from 'path';
+
+// Load environment variables from .env.demo
+dotenv.config({ path: path.resolve(__dirname, '.env.demo') });
+
 import { defineConfig, devices } from '@playwright/test';
 
 export default defineConfig({
@@ -7,7 +13,7 @@ export default defineConfig({
     timeout: 5000,
   },
   fullyParallel: true,
-  retries: 1,
+  retries: 0,
   reporter: [['html', { open: 'never' }], ['list']],
   use: {
     actionTimeout: 0,

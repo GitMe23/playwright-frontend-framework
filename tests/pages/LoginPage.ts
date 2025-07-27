@@ -1,4 +1,4 @@
-import { Page, Locator } from '@playwright/test';
+import { Page, Locator, expect } from '@playwright/test';
 
 export class LoginPage {
   private page: Page;
@@ -38,4 +38,11 @@ export class LoginPage {
   async isLoginButtonVisible(): Promise<boolean> {
     return this.loginButton.isVisible();
   }
+
+  async expectLoginFormVisible() {
+    await expect(this.usernameInput).toBeVisible();
+    await expect(this.passwordInput).toBeVisible();
+    await expect(this.loginButton).toBeVisible();
+  }
+  
 }
