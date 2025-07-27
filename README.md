@@ -51,8 +51,8 @@ npx playwright show-report
 
 ## 🔒 Environment Variables & Secrets
 
-Environment variables are loaded using dotenv.
-The test suite uses these variables to manage login credentials and other secrets securely.
+Environment variables are loaded using dotenv with an example .env that would never normally be in a github repo.
+The test suite uses these variables to manage demo login credentials and other secrets.
 
 ✅ Make sure to never commit real credentials in .env.demo.
 Use .env locally and add it to .gitignore.
