@@ -1,5 +1,5 @@
 // pages/LoginPage.ts
-import { Page, Locator, expect } from '@playwright/test';
+import { Page, Locator, expect, test } from '@playwright/test';
 
 export class LoginPage {
   readonly page: Page;
@@ -23,7 +23,10 @@ export class LoginPage {
   }
 
   async enterPassword(password: string) {
-    await this.passwordInput.fill(password);
+    // Using a wrapper to not log the password
+    await test.step('Enter password', async () => {
+      await this.passwordInput.fill(password);
+    });
   }
 
   async clickLogin() {
