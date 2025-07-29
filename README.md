@@ -21,9 +21,12 @@ Front-end test automation using [Playwright](https://playwright.dev/) and [TypeS
 ### 📦 2. Navigate into the project directory
 ### 📦 2. Ensure you have [Node.js (>= 18.x)](https://nodejs.org/) installed
 ### 📦 4. Install Dependencies
-
 ```bash
 npm install
+```
+### 📦 4. Install Playwright browsers
+```bash
+npx playwright install
 ```
 
 
